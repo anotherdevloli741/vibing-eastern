@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vị Phương Đông</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0e0b08;
+      --paper: #f7f2ea;
+      --accent: #c0392b;
+      --gold: #d4a853;
+      --muted: #7a6a58;
+      --white: #fff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--paper);
+      font-family: 'Be Vietnam Pro', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      background: rgba(14,11,8,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212,168,83,0.15);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 36px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(247,242,234,0.55);
+      transition: color 0.25s;
+    }
+
+    nav ul li a:hover { color: var(--gold); }
+
+    .nav-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 8px 18px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-tag:hover { opacity: 0.85; }
+
+    /* ── HERO TITLE ── */
+    .hero {
+      padding: 140px 48px 60px;
+      max-width: 700px;
+    }
+
+    .hero .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 6vw, 72px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(247,242,234,0.6);
+      line-height: 1.75;
+      max-width: 500px;
+    }
+
+    /* ── GALLERY GRID ── */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 420px 380px;
+      gap: 3px;
+      margin: 0 3px 3px;
+    }
+
+    .gallery .card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+    }
+
+    /* First card spans 2 rows */
+    .gallery .card:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  filter 0.5s ease;
+      filter: brightness(0.75);
+    }
+
+    .card:hover img {
+      transform: scale(1.07);
+      filter: brightness(0.55);
+    }
+
+    /* Red sweep on hover */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(192,57,43,0.3) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: 1;
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    .card-body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 26px 24px;
+      background: linear-gradient(to top, rgba(10,6,3,0.88) 0%, transparent 100%);
+      z-index: 2;
+      transform: translateY(8px);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover .card-body { transform: translateY(0); }
+
+    .card-body .tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 7px;
+    }
+
+    .card-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--paper);
+      margin-bottom: 10px;
+    }
+
+    .card:first-child .card-body h2 { font-size: 32px; }
+
+    .card-body .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.35s 0.05s, transform 0.35s 0.05s;
+    }
+
+    .card:hover .card-body .read-more {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .read-more::after {
+      content: '→';
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+
+    .card:hover .read-more::after { transform: translateX(4px); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 56px 48px 0;
+      margin-bottom: -8px;
+    }
+
+    .divider span {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(212,168,83,0.2);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 80px;
+      padding: 28px 48px;
+      border-top: 1px solid rgba(212,168,83,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer .f-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Vị Phương Đông</a>
+    <ul>
+      <li><a href="#">Đặc Sản</a></li>
+      <li><a href="#">Vùng Miền</a></li>
+      <li><a href="#">Văn Hóa</a></li>
+      <li><a href="#">Công Thức</a></li>
+    </ul>
+    <a href="#" class="nav-tag">Đóng Góp</a>
+  </nav>
+
+  <section class="hero">
+    <div class="eyebrow">Tạp Chí Ảnh Ẩm Thực</div>
+    <h1>Hương Vị Ngàn Năm Châu Á</h1>
+    <p>Khám phá tinh hoa ẩm thực phương Đông qua từng tấm ảnh — nơi mỗi món ăn là một câu chuyện về văn hóa, lịch sử và tình người.</p>
+  </section>
+
+  <div class="divider"><span>Chọn Một Món</span></div>
+
+  <section class="gallery">
+    <a class="card" href="pho.html">
+      <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=900&q=85" alt="Phở bò" />
+      <div class="card-body">
+        <div class="tag">Việt Nam · Hà Nội</div>
+        <h2>Phở Bò — Linh Hồn Hà Nội</h2>
+        <span class="read-more">Đọc bài viết</span>
+      </div>
+    </a>
+
+    <a class="card" href="sushi.html">
+      <img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=700&q=85" alt="Sushi" />
+      <div class="card-body">
+        <div class="tag">Nhật Bản · Tokyo</div>
+        <h2>Sushi — Nghệ Thuật Im Lặng</h2>
+        <span class="read-more">Đọc bài viết</span>
+      </div>
+    </a>
+
+    <a class="card" href="dimsum.html">
+      <img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=700&q=85" alt="Dim Sum" />
+      <div class="card-body">
+        <div class="tag">Trung Hoa · Quảng Đông</div>
+        <h2>Dim Sum — Hơi Ấm Sáng Chủ Nhật</h2>
+        <span class="read-more">Đọc bài viết</span>
+      </div>
+    </a>
+
+    <a class="card" href="ramen.html">
+      <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=700&q=85" alt="Ramen" />
+      <div class="card-body">
+        <div class="tag">Nhật Bản · Sapporo</div>
+        <h2>Ramen — Bát Mì Đêm Đông</h2>
+        <span class="read-more">Đọc bài viết</span>
+      </div>
+    </a>
+
+    <a class="card" href="bibimbap.html">
+      <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=700&q=85" alt="Bibimbap" />
+      <div class="card-body">
+        <div class="tag">Hàn Quốc · Seoul</div>
+        <h2>Bibimbap — Sắc Màu Trên Đĩa</h2>
+        <span class="read-more">Đọc bài viết</span>
+      </div>
+    </a>
+
+    <a class="card" href="padthai.html">
+      <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=700&q=85" alt="Pad Thai" />
+      <div class="card-body">
+        <div class="tag">Thái Lan · Bangkok</div>
+        <h2>Pad Thai — Linh Hồn Đường Phố</h2>
+        <span class="read-more">Đọc bài viết</span>
+      </div>
+    </a>
+  </section>
+
+  <footer>
+    <div class="f-logo">Vị Phương Đông</div>
+    <div>Tạp chí ảnh ẩm thực châu Á · 2026</div>
+    <div>Bản quyền được bảo lưu.</div>
+  </footer>
+
+</body>
+</html>

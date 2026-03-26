@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bibimbap — Sắc Màu Trên Đĩa — Vị Phương Đông</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0e0b08;
+      --paper: #f7f2ea;
+      --accent: #c0392b;
+      --gold: #d4a853;
+      --muted: #7a6a58;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--paper);
+      font-family: 'Be Vietnam Pro', sans-serif;
+      min-height: 100vh;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      background: rgba(14,11,8,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212,168,83,0.15);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(247,242,234,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--gold); }
+    .hero-img {
+      width: 100%;
+      height: 90vh;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.6);
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 90vh;
+      background: linear-gradient(to bottom, transparent 40%, rgba(14,11,8,0.92) 100%);
+    }
+    .img-wrap { position: relative; }
+    .hero-text {
+      position: absolute;
+      bottom: 60px; left: 48px; right: 48px;
+    }
+    .hero-text .tag {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 6vw, 76px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.1;
+      max-width: 760px;
+    }
+    article {
+      max-width: 720px;
+      margin: 80px auto 120px;
+      padding: 0 24px;
+    }
+    article .lede {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1.45;
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(212,168,83,0.2);
+    }
+    article p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(247,242,234,0.8);
+      margin-bottom: 28px;
+    }
+    article p strong {
+      color: var(--paper);
+      font-weight: 500;
+    }
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      margin: 48px 0;
+      padding: 8px 0 8px 28px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1.45;
+    }
+    footer {
+      margin-top: 80px;
+      padding: 28px 48px;
+      border-top: 1px solid rgba(212,168,83,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer .f-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--gold);
+    }
+</style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Vị Phương Đông</a>
+    <a href="index.html" class="back-link">← Quay lại</a>
+  </nav>
+
+  <div class="img-wrap">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=1600&q=85" alt="Bát bibimbap đầy màu sắc" />
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <div class="tag">Hàn Quốc · Seoul</div>
+      <h1>Bibimbap — Sắc Màu Trên Đĩa</h1>
+    </div>
+  </div>
+
+  <article>
+    <p class="lede">Bibimbap là bức tranh màu nước trên nền cơm trắng — nơi năm sắc màu của rau củ hội tụ, và một muỗng gochujang biến tất cả thành hòa âm hoàn hảo.</p>
+    <p>Bibimbap — nghĩa đen là "cơm trộn" — nhưng đây là kiểu trộn được nâng lên thành nghệ thuật. Nguồn gốc của món ăn này có từ triều đại Joseon, khi người ta dọn sạch các món ăn thừa cuối năm bằng cách trộn tất cả lên với cơm. Từ sự tằn tiện đó, <strong>một kiệt tác ẩm thực đã ra đời.</strong></p>
+        <p>Nguyên tắc của bibimbap là <strong>ngũ sắc ngũ vị</strong> — năm màu sắc tượng trưng cho ngũ hành: xanh lá (rau bina, bí zucchini xào), đỏ (cà rốt, ớt chuông), vàng (trứng), trắng (giá đỗ, củ cải), đen (nấm shiitake, rong biển). Mỗi thành phần được nấu riêng biệt với gia vị riêng trước khi được sắp xếp cẩn thận xung quanh bát cơm như một bức tranh.</p>
+        <div class="pull-quote">"Trước khi trộn, bibimbap là một tác phẩm nghệ thuật. Sau khi trộn, nó trở thành trải nghiệm."</div>
+        <p>Dolsot bibimbap — phiên bản nấu trong nồi đá nung nóng — đưa món ăn lên một tầm cao khác. Lớp cơm tiếp xúc với thành nồi đá nóng rực tạo nên một lớp <strong>nurungji</strong> (cơm cháy vàng giòn) thơm phức ở đáy nồi — điều mà người Hàn Quốc coi là phần ngon nhất của cả bát. Khi gochujang đỏ được thêm vào và bạn bắt đầu khuấy — tiếng xèo của cơm trên đá nóng, màu sắc hòa quyện — đó là khoảnh khắc thuần túy của ẩm thực Hàn Quốc.</p>
+        <p>Jeonju, thành phố miền Nam Hàn Quốc, được xem là quê hương của bibimbap chính thống với hơn ba mươi loại topping khác nhau và nước dùng xương bò thay vì nước lã để nấu cơm. Thành phố này tự hào về bibimbap của mình đến mức đã đăng ký bảo hộ địa lý cho món ăn — giống như Champagne của Pháp hay Parmigiano-Reggiano của Ý.</p>
+  </article>
+
+  <footer>
+    <div class="f-logo">Vị Phương Đông</div>
+    <div>Tạp chí ảnh ẩm thực châu Á · 2026</div>
+    <div>Bản quyền được bảo lưu.</div>
+  </footer>
+
+</body>
+</html>

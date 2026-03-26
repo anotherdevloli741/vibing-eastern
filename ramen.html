@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramen — Bát Mì Đêm Đông — Vị Phương Đông</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0e0b08;
+      --paper: #f7f2ea;
+      --accent: #c0392b;
+      --gold: #d4a853;
+      --muted: #7a6a58;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--paper);
+      font-family: 'Be Vietnam Pro', sans-serif;
+      min-height: 100vh;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      background: rgba(14,11,8,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212,168,83,0.15);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(247,242,234,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--gold); }
+    .hero-img {
+      width: 100%;
+      height: 90vh;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.6);
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 90vh;
+      background: linear-gradient(to bottom, transparent 40%, rgba(14,11,8,0.92) 100%);
+    }
+    .img-wrap { position: relative; }
+    .hero-text {
+      position: absolute;
+      bottom: 60px; left: 48px; right: 48px;
+    }
+    .hero-text .tag {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 6vw, 76px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.1;
+      max-width: 760px;
+    }
+    article {
+      max-width: 720px;
+      margin: 80px auto 120px;
+      padding: 0 24px;
+    }
+    article .lede {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1.45;
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(212,168,83,0.2);
+    }
+    article p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(247,242,234,0.8);
+      margin-bottom: 28px;
+    }
+    article p strong {
+      color: var(--paper);
+      font-weight: 500;
+    }
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      margin: 48px 0;
+      padding: 8px 0 8px 28px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1.45;
+    }
+    footer {
+      margin-top: 80px;
+      padding: 28px 48px;
+      border-top: 1px solid rgba(212,168,83,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer .f-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--gold);
+    }
+</style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Vị Phương Đông</a>
+    <a href="index.html" class="back-link">← Quay lại</a>
+  </nav>
+
+  <div class="img-wrap">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=1600&q=85" alt="Tô ramen đêm đông" />
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <div class="tag">Nhật Bản · Sapporo</div>
+      <h1>Ramen — Bát Mì Đêm Đông</h1>
+    </div>
+  </div>
+
+  <article>
+    <p class="lede">Ramen là bài thơ về sự ấm áp — được viết bằng nước dùng ninh cả ngày, những sợi mì dai mềm, và lát thịt heo tan chảy trên đầu lưỡi.</p>
+    <p>Ramen không phải món ăn cổ đại. Nó sinh ra vào giữa thế kỷ 20, từ những quán lều nhỏ ở các thành phố Nhật Bản thời hậu chiến. Nhưng trong vòng vài thập kỷ, ramen đã trở thành <strong>biểu tượng văn hóa của Nhật Bản</strong> — được nghiên cứu, tranh luận và tôn sùng như một loại nghệ thuật.</p>
+        <p>Bốn trường phái ramen lớn định hình bản đồ ẩm thực Nhật Bản: <strong>Shoyu</strong> (nước tương) của Tokyo với nước dùng gà trong vắt và màu hổ phách; <strong>Shio</strong> (muối) của Hakodate thanh nhẹ và tinh tế; <strong>Miso</strong> của Sapporo đậm đà và béo ngậy; và <strong>Tonkotsu</strong> của Fukuoka trắng đục như sữa từ xương heo ninh hàng chục giờ. Mỗi phong cách là một bản sắc vùng miền.</p>
+        <div class="pull-quote">"Một bát ramen tốt là bát ramen mà bạn không muốn nói chuyện trong khi ăn — chỉ muốn cúi đầu và im lặng thưởng thức."</div>
+        <p>Chashu — thịt heo ba chỉ cuộn tròn, hầm trong nước tương, mirin và sake cho đến khi mềm như bơ — là linh hồn của một tô ramen hoàn hảo. Trứng ngâm ajitsuke tamago với lòng đỏ chín tới màu cam, cắt đôi để lộ sự mềm mại bên trong. Nori, măng menma, hành lá thái nhuyễn — mỗi topping là một nốt nhạc trong bản giao hưởng.</p>
+        <p>Ở Sapporo vào mùa đông, khi nhiệt độ xuống âm mười lăm độ và tuyết phủ trắng thành phố, một tô ramen miso bốc khói trong quán nhỏ ven đường là trải nghiệm không thể diễn tả bằng lời. Đó là sự ấm áp thuần túy nhất mà một bát thức ăn có thể mang lại.</p>
+  </article>
+
+  <footer>
+    <div class="f-logo">Vị Phương Đông</div>
+    <div>Tạp chí ảnh ẩm thực châu Á · 2026</div>
+    <div>Bản quyền được bảo lưu.</div>
+  </footer>
+
+</body>
+</html>
